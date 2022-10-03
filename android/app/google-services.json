@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "826228627225",
+    "project_id": "erp-software-2c7e1",
+    "storage_bucket": "erp-software-2c7e1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:826228627225:android:803d2f9fa753272d29d788",
+        "android_client_info": {
+          "package_name": "com.example.erp_software"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "826228627225-d934nsjr7vr5ords10u4uq24ai3dkagu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_yubaDQEvSwGFiOiM4IvyzJ8H730J_hA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "826228627225-d934nsjr7vr5ords10u4uq24ai3dkagu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
