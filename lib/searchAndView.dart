@@ -1,4 +1,3 @@
-import 'package:erp_software/search_by_date.dart';
 import 'package:erp_software/showdatabysearch.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
@@ -13,9 +12,6 @@ class SearchAndView extends StatefulWidget {
 class _SearchAndViewState extends State<SearchAndView> {
   final _ItemController = TextEditingController();
   final _CompanyController = TextEditingController();
-  final _RecodLevelcontroller = TextEditingController();
-  final _AvailableController = TextEditingController();
-  final _StockInController = TextEditingController();
   late DatabaseReference dbref;
 
   @override

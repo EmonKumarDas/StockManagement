@@ -1,33 +1,23 @@
+import 'package:erp_software/DamageData.dart';
 import 'package:erp_software/showData.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-// SearchDamageByDate
-class SearchByDate extends StatefulWidget {
-  SearchByDate({Key? key}) : super(key: key);
+
+class SearchDamageByDate extends StatefulWidget {
+  SearchDamageByDate({Key? key}) : super(key: key);
   @override
-  State<SearchByDate> createState() => _SearchByDate();
+  State<SearchDamageByDate> createState() => _SearchDamageByDate();
 }
 
-class _SearchByDate extends State<SearchByDate> {
+class _SearchDamageByDate extends State<SearchDamageByDate> {
   TextEditingController dateInput = TextEditingController();
   TextEditingController dateInputs = TextEditingController();
 
   Widget datalist({required Map cate}) {
     return Column(
-      children: [
-        Row(
-          children: [
-            Container(
-                width: MediaQuery.of(context).size.width / 4,
-                child: Text(cate['item'])),
-            Container(
-                width: MediaQuery.of(context).size.width / 4,
-                child: Text(cate['StockOutquantity'])),
-          ],
-        ),
-      ],
+      children: [],
     );
   }
 
@@ -38,8 +28,9 @@ class _SearchByDate extends State<SearchByDate> {
     super.initState();
   }
 
-  Query SellQantity = FirebaseDatabase.instance.ref().child('Sell');
-  DatabaseReference dbrefSells = FirebaseDatabase.instance.ref().child('Sell');
+  Query SellQantity = FirebaseDatabase.instance.ref().child('Damage');
+  DatabaseReference dbrefSells =
+      FirebaseDatabase.instance.ref().child('Damage');
   String formatdate2 = "";
   String formatdate1 = "";
   List items = [];
@@ -54,8 +45,8 @@ class _SearchByDate extends State<SearchByDate> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Search by Date"),
-        backgroundColor: Colors.redAccent, //background color of app bar
+        title: const Text("Damage Data Search by Date"),
+        backgroundColor: Colors.blue, //background color of app bar
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -130,6 +121,7 @@ class _SearchByDate extends State<SearchByDate> {
                   },
                 ))),
             MaterialButton(
+              color: Colors.blue,
               onPressed: () {
                 List setdates = [];
                 for (int i = 0; i <= dates.length - 1; i++) {
@@ -156,14 +148,14 @@ class _SearchByDate extends State<SearchByDate> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (_) => Datashow(
+                          builder: (_) => DamageData(
                               item: routitem,
                               stockout: routstock,
                               date: routdates)));
                 }
               },
-              child: const Text("Search",
-                  style: TextStyle(backgroundColor: Colors.amber)),
+              child:
+                  const Text("Search", style: TextStyle(color: Colors.white)),
             ),
             Container(
               child: FirebaseAnimatedList(
