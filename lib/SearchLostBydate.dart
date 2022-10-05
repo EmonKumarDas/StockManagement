@@ -1,16 +1,16 @@
-import 'package:erp_software/DamageData.dart';
+import 'package:erp_software/showLostData.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 // SearchLostByData
-class SearchDamageByDate extends StatefulWidget {
-  SearchDamageByDate({Key? key}) : super(key: key);
+class SearchLostByData extends StatefulWidget {
+  SearchLostByData({Key? key}) : super(key: key);
   @override
-  State<SearchDamageByDate> createState() => _SearchDamageByDate();
+  State<SearchLostByData> createState() => _SearchLostByData();
 }
 
-class _SearchDamageByDate extends State<SearchDamageByDate> {
+class _SearchLostByData extends State<SearchLostByData> {
   TextEditingController dateInput = TextEditingController();
   TextEditingController dateInputs = TextEditingController();
 
@@ -27,9 +27,9 @@ class _SearchDamageByDate extends State<SearchDamageByDate> {
     super.initState();
   }
 
-  Query SellQantity = FirebaseDatabase.instance.ref().child('Damage');
+  Query SellQantity = FirebaseDatabase.instance.ref().child('Lost');
   DatabaseReference dbrefSells =
-      FirebaseDatabase.instance.ref().child('Damage');
+      FirebaseDatabase.instance.ref().child('Lost');
   String formatdate2 = "";
   String formatdate1 = "";
   List items = [];
@@ -44,7 +44,7 @@ class _SearchDamageByDate extends State<SearchDamageByDate> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Damage Data Search by Date"),
+        title: const Text("Lost Data Search by Date"),
         backgroundColor: Colors.blue, //background color of app bar
       ),
       body: SingleChildScrollView(
@@ -147,7 +147,7 @@ class _SearchDamageByDate extends State<SearchDamageByDate> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (_) => DamageData(
+                          builder: (_) => ShowLostData(
                               item: routitem,
                               stockout: routstock,
                               date: routdates)));
