@@ -364,28 +364,20 @@ class _StockOutState extends State<StockOut> {
                       ),
                       const SizedBox(width: 10),
                       Container(
-                        width: MediaQuery.of(context).size.width / 3,
+                        width: MediaQuery.of(context).size.width / 4,
                         child: ElevatedButton(
                           onPressed: () {
-                            Map<String, String> categories = {
+                            selsCount++;
+                            var now = DateTime.now();
+                            var formatter = DateFormat('yyyy-MM-dd');
+                            String formattedDate = formatter.format(now);
+                            dbrefDamage.push().set({
                               'item': _ItemController.text,
                               'Company': _CompanyController.text,
                               'StockOutquantity': _StockInController.text,
-                            };
-                            if (_ItemController.text != '' &&
-                                _CompanyController.text != '' &&
-                                _RecodLevelcontroller.text != '' &&
-                                _AvailableController.text != '' &&
-                                _StockInController.text != '') {
-                              dbrefDamage
-                                  .push()
-                                  .set(categories)
-                                  .then((value) => {Navigator.pop(context)});
-                            } else {
-                              const AlertDialog(
-                                title: Text("Please fill up the form"),
-                              );
-                            }
+                              'Date': formattedDate,
+                              'sCount': selsCount,
+                            }).then((value) => {Navigator.pop(context)});
                           },
                           child: const Text("Damage"),
                         ),
@@ -395,25 +387,17 @@ class _StockOutState extends State<StockOut> {
                         width: MediaQuery.of(context).size.width / 5,
                         child: ElevatedButton(
                           onPressed: () {
-                            Map<String, String> categories = {
+                            selsCount++;
+                            var now = DateTime.now();
+                            var formatter = DateFormat('yyyy-MM-dd');
+                            String formattedDate = formatter.format(now);
+                            dbrefLost.push().set({
                               'item': _ItemController.text,
                               'Company': _CompanyController.text,
                               'StockOutquantity': _StockInController.text,
-                            };
-                            if (_ItemController.text != '' &&
-                                _CompanyController.text != '' &&
-                                _RecodLevelcontroller.text != '' &&
-                                _AvailableController.text != '' &&
-                                _StockInController.text != '') {
-                              dbrefLost
-                                  .push()
-                                  .set(categories)
-                                  .then((value) => {Navigator.pop(context)});
-                            } else {
-                              const AlertDialog(
-                                title: Text("Please fill up the form"),
-                              );
-                            }
+                              'Date': formattedDate,
+                              'sCount': selsCount,
+                            }).then((value) => {Navigator.pop(context)});
                           },
                           child: const Text("Lost"),
                         ),
