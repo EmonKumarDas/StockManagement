@@ -27,8 +27,8 @@ class _SearchLostByData extends State<SearchLostByData> {
     super.initState();
   }
 
-  Query SellQantity = FirebaseDatabase.instance.ref().child('Lost');
-  DatabaseReference dbrefSells =
+  Query LostQantity = FirebaseDatabase.instance.ref().child('Lost');
+  DatabaseReference dbrefLost =
       FirebaseDatabase.instance.ref().child('Lost');
   String formatdate2 = "";
   String formatdate1 = "";
@@ -159,16 +159,16 @@ class _SearchLostByData extends State<SearchLostByData> {
             Container(
               child: FirebaseAnimatedList(
                 shrinkWrap: true,
-                query: dbrefSells,
+                query: dbrefLost,
                 itemBuilder: (BuildContext context, DataSnapshot snapshot,
                     Animation<double> animation, int index) {
-                  Map Sell = snapshot.value as Map;
+                  Map Lost = snapshot.value as Map;
 
-                  Sell['key'] = snapshot.key;
-                  items.add(Sell["item"]);
-                  dates.add(Sell["Date"]);
-                  stockout.add(Sell["StockOutquantity"]);
-                  return datalist(cate: Sell);
+                  Lost['key'] = snapshot.key;
+                  items.add(Lost["item"]);
+                  dates.add(Lost["Date"]);
+                  stockout.add(Lost["StockOutquantity"]);
+                  return datalist(cate: Lost);
                 },
               ),
             ),

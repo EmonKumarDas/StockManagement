@@ -28,7 +28,7 @@ class _SearchDamageByDate extends State<SearchDamageByDate> {
   }
 
   Query SellQantity = FirebaseDatabase.instance.ref().child('Damage');
-  DatabaseReference dbrefSells =
+  DatabaseReference dbrefDMG =
       FirebaseDatabase.instance.ref().child('Damage');
   String formatdate2 = "";
   String formatdate1 = "";
@@ -159,16 +159,16 @@ class _SearchDamageByDate extends State<SearchDamageByDate> {
             Container(
               child: FirebaseAnimatedList(
                 shrinkWrap: true,
-                query: dbrefSells,
+                query: dbrefDMG,
                 itemBuilder: (BuildContext context, DataSnapshot snapshot,
                     Animation<double> animation, int index) {
-                  Map Sell = snapshot.value as Map;
+                  Map dmg = snapshot.value as Map;
 
-                  Sell['key'] = snapshot.key;
-                  items.add(Sell["item"]);
-                  dates.add(Sell["Date"]);
-                  stockout.add(Sell["StockOutquantity"]);
-                  return datalist(cate: Sell);
+                  dmg['key'] = snapshot.key;
+                  items.add(dmg["item"]);
+                  dates.add(dmg["Date"]);
+                  stockout.add(dmg["StockOutquantity"]);
+                  return datalist(cate: dmg);
                 },
               ),
             ),

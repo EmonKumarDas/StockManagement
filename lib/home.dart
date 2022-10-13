@@ -1,3 +1,4 @@
+import 'package:erp_software/SearchLostBydate.dart';
 import 'package:erp_software/category.dart';
 import 'package:erp_software/company.dart';
 import 'package:erp_software/itemsetup.dart';
@@ -107,7 +108,7 @@ class Home extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => SearchByDate()),
+                  MaterialPageRoute(builder: (context) => SearchLostByData()),
                 );
               },
               child: Categories("View Lost Between Two Dates"),
